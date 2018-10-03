@@ -1,0 +1,13 @@
+[package]
+name = "rpmgraph"
+version = "0.1.0"
+authors = ["erich"]
+
+[dependencies]
+walkdir = "2"
+structopt = "0.2"
+threadpool = "1"
+num_cpus = "1"
+rayon = "1"
+regex = "0.2"
+rusted_cypher = "1.1.0"
