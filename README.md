@@ -1,2 +1,5 @@
-# rpm-graph
-A tool to get a graph of build and runtime dependencies for rpms
+# rpmgraph
+
+A tool to generate a graph from rpm dependencies.
+
+`
