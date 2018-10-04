@@ -12,9 +12,9 @@ pub struct RPM {
 
 #[derive(Debug, Clone, PartialEq)]
 enum RpmArch {
-    noarch,
-    x86_64,
-    src,
+    Noarch,
+    X86_64,
+    Src,
 }
 
 fn get_nvra(filename: &str) -> Option<(&str, &str, &str, &str)> {
@@ -65,9 +65,9 @@ impl RPM {
         let name = filepath.file_name()?;
         let (n, v, r, a) = get_nvra(name.to_str().unwrap())?;
         let arch = match a {
-            "noarch" => RpmArch::noarch,
-            "x86_64" => RpmArch::x86_64,
-            "src" => RpmArch::src,
+            "noarch" => RpmArch::Noarch,
+            "x86_64" => RpmArch::X86_64,
+            "src" => RpmArch::Src,
             _ => unreachable!(),
         };
 
@@ -120,7 +120,7 @@ mod tests {
         assert_eq!(rpm.name, "firewalld");
         assert_eq!(rpm.version, "0.4.4.4");
         assert_eq!(rpm.release, "14.el7");
-        assert_eq!(rpm.arch, RpmArch::noarch);
+        assert_eq!(rpm.arch, RpmArch::Noarch);
 
         remove_file(name).unwrap();
     }
